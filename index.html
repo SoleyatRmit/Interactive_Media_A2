@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crafting Tutorial Media Player</title>
+    <!-- Using Inter font for a clean, modern feel -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <!-- Simple header -->
+    <header>
+      <h1>DIY Windmill Fan Tutorial</h1>
+    </header>
+
+    <!-- Basic nav bar – reused the same page links since assignment didn't require multipage nav -->
+    <nav>
+      <ul>
+        <!-- Technically all the links go to the same file. I would've added new HTML pages but wasn't sure if that was allowed. -->
+        <li><a href="mediaplayer.html">Home</a></li>
+        <li><a href="mediaplayer.html">Videos</a></li>
+        <li><a href="mediaplayer.html">Tutorials</a></li>
+        <li><a href="#">Recipes</a></li>
+      </ul>
+    </nav>
+
+    <main class="container">
+      <div class="tutorial-grid">
+        <!-- MAIN FEATURE: The actual media player with enhanced controls -->
+        <div class="media-player">
+          <div class="player-wrapper">
+            <!-- Video element showing the tutorial -->
+            <video id="custom-video-player">
+              <source
+                src="https://thelongesthumstore.sgp1.cdn.digitaloceanspaces.com/IM-2250/berry-bunch_handheld-windmill-fan.mp4"
+                type="video/mp4"
+              />
+            </video>
+
+            <!-- These are all custom buttons for the media player -->
+            <div class="custom-controls">
+              <!-- I added several functions here based on what I felt a user might need while crafting: skip, replay, full screen, etc. -->
+              <button onclick="skipToStart()" title="Skip to Start">
+                <img src="https://img.icons8.com/?size30&id=YTSDoX6z463S&format=png&color=000000" alt="Skip to Start" />
+              </button>
+              <button onclick="rewind10()" title="Rewind 10s">
+                <img src="https://img.icons8.com/?size=30&id=91480&format=png&color=000000" alt="Rewind" />
+              </button>
+              <button id="play-pause-btn" onclick="togglePlayPause()" title="Play/Pause">
+                <img id="play-pause-img" src="https://img.icons8.com/ios-glyphs/30/play--v1.png" alt="Play" />
+              </button>
+              <button onclick="fastForward10()" title="Fast Forward 10s">
+                <img src="https://img.icons8.com/?size=30&id=91476&format=png&color=000000" alt="Fast Forward" />
+              </button>
+              <button onclick="skipToEnd()" title="Skip to End">
+                <img src="https://img.icons8.com/?size=30&id=9m6KWcXqAqBT&format=png&color=000000" alt="Skip to End" />
+              </button>
+              <button onclick="replayVideo()" title="Replay">
+                <img src="https://img.icons8.com/?size=30&id=91644&format=png&color=000000" alt="Replay" />
+              </button>
+              <button onclick="toggleFullscreen()" title="Fullscreen">
+                <img src="https://img.icons8.com/?size=30&id=69155&format=png&color=000000" alt="Fullscreen" />
+              </button>
+            </div>
+
+            <!-- Progress bar so users can visually track their progress -->
+            <div class="progress-bar">
+              <span id="progress-bar-fill"></span>
+            </div>
+          </div>
+
+          <!-- CHAPTERS: Super helpful for viewers to jump to key parts -->
+          <div class="chapter-buttons">
+            <!-- I watched the video and manually timed these points where steps changed -->
+            <button onclick="goToTime(0)">Intro</button>
+            <button onclick="goToTime(14)">Materials</button>
+            <button onclick="goToTime(28)">Step 1: Prep</button>
+            <button onclick="goToTime(167)">Step 2: Assemble</button>
+            <button onclick="goToTime(228)">Final Touches</button>
+          </div>
+        </div>
+
+        <!-- Written instructions on the side, useful for multitaskers who want to skim while watching -->
+        <aside class="recipe-steps">
+          <h2>Instructions</h2>
+          <ol>
+            <li>Gather all necessary materials listed in the video.</li>
+            <li>Cut and prepare paper for the fan blades.</li>
+            <li>Assemble the central stick and attach the fan parts.</li>
+            <li>Ensure everything spins properly and adjusted.</li>
+            <li>Decorate your fan with stickers or paint if desired!</li>
+          </ol>
+        </aside>
+      </div>
+
+      <section class="contextual-info">
+        <h2>About This Tutorial</h2>
+        <p>
+          This tutorial teaches viewers to create a handheld windmill fan. Viewers can learn through the video and written step-by-step instructions.
+        </p>
+        <p>
+          Interactive chapter markers and playback features allow skipping, rewinding, and repeating — features that match how people watch instructional content.
+        </p>
+      </section>
+    </main>
+
+    <!-- Footer is mainly for attribution; I followed proper credit guidelines using Icons8 links -->
+    <footer>
+      <p>&copy; 2025 Media Player Website. All rights reserved.</p>
+      <!-- List of icons used with credit -->
+      <a href="https://icons8.com/icon/TlSnjmNzYgKT/play">Play</a>
+      <a href="https://icons8.com/icon/pSwquXkxwLD8/pause">Pause</a>
+      <a href="https://icons8.com/icon/91480/rewind">Rewind</a>
+      <a href="https://icons8.com/icon/91476/fast-forward">Fast Forward</a>
+      <a href="https://icons8.com/icon/91644/replay">Replay</a>
+      <a href="https://icons8.com/icon/YTSDoX6z463S/skip-to-start">Skip To Start</a>
+      <a href="https://icons8.com/icon/9m6KWcXqAqBT/end">Skip To End</a>
+      <a href="https://icons8.com/icon/reqgj3e1uKBy/audio">Audio</a>
+      <a href="https://icons8.com/icon/69155/full-screen">Fullscreen</a> icons by
+      <a href="https://icons8.com">Icons8</a>
+    </footer>
+  </body>
+</html>

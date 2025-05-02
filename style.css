@@ -1,0 +1,263 @@
+:root {
+    /* CSS variables to keep things consistent and easy to tweak later */
+    /* Also this theme matches with my Assignemnt 1 theme */
+    --primary-bg: #fffaf4;
+    --accent: #f5d7b3;
+    --accent-dark: #d6a873;
+    --text: #333;
+    --white: #fff;
+    --font: 'Inter', sans-serif;
+    --highlight: #f7eadf;
+    --hover: #d8bea1;
+}
+  
+/* Base layout settings */
+body {
+    font-family: var(--font);
+    background-color: var(--primary-bg);
+    color: var(--text);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+  
+/* Simple, clean header styling */
+header {
+    background-color: var(--accent);
+    color: var(--text);
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+  
+/* Navigation bar styling */
+nav {
+    background-color: var(--white);
+    border-bottom: 1px solid #ddd;
+    padding: 0.5rem 0;
+}
+  
+/* Horizontal list for nav links */
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    gap: 1.5rem;
+}
+  
+nav a {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 600;
+}
+  
+/* Container for main layout content */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    flex: 1;
+}
+  
+/* Two-column layout: video on left, instructions on right */
+.tutorial-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    align-items: flex-start;
+}
+  
+.player-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.media-player video {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: block;
+}
+  
+/* Controls row: I kept it wrapped and spaced so it feels light */
+.custom-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.8rem;
+    align-items: center;
+}
+  
+/* Buttons inside media player controls
+.custom-controls button {
+    background-color: transparent;
+    border: none;
+    padding: 0.25rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+*/
+  
+/* A small hover effect to give feedback when interacting */
+.custom-controls button:hover {
+    transform: scale(1.15);
+}
+  
+/* This ensures all control icons have the same size and style */
+.custom-controls img {
+    width: 28px;
+    height: 28px;
+    filter: grayscale(0%) contrast(90%);
+}
+  
+/* Custom progress bar container */
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 0.75rem 0 1.2rem;
+    position: relative;
+    cursor: pointer;
+}
+  
+.progress-bar span {
+    display: block;
+    height: 100%;
+    width: 0;
+    background-color: var(--accent-dark);
+    transition: width 0.3s ease-in-out;
+}
+  
+/* Time and volume UI */
+.info-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    gap: 1rem;
+}
+  
+/* Align volume icon with slider */
+.volume-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+  
+/* Range input for volume — default size was too short */
+  .volume-wrapper input[type="range"] {
+    width: 100px;
+    accent-color: var(--accent-dark); /* Match theme */
+}
+  
+/* Buttons to jump between tutorial sections */
+.chapter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+  
+/* Chapter button styling */
+  .chapter-buttons button {
+    background-color: var(--accent);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+}
+  
+/* Add hover feedback so the user knows it’s clickable */
+  .chapter-buttons button:hover {
+    background-color: var(--accent-dark);
+    color: white;
+}
+  
+/* Instruction panel next to the video */
+  .recipe-steps {
+    background-color: #fffdf9;
+    border-left: 4px solid var(--accent);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+  }
+  
+/* Title for the instruction block */
+  .recipe-steps h2 {
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+}
+  
+/* Steps are an ordered list */
+  .recipe-steps ol {
+    padding-left: 1rem;
+}
+  
+.recipe-steps li {
+    margin-bottom: 0.5rem;
+}
+  
+/* Below the tutorial: more explanation */
+  .contextual-info {
+    margin-top: 3rem;
+    background: #fef9f4;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid var(--accent-dark);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.03);
+}
+  
+/* Footer: legal info + icon credits */
+footer {
+    background-color: var(--accent);
+    color: var(--text);
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.875rem;
+}
+  
+footer a {
+    color: var(--text);
+    text-decoration: underline;
+}
+  
+/* Responsive layout for mobile viewports */
+@media (max-width: 768px) {
+    .tutorial-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    nav ul {
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+  
+    .custom-controls {
+      justify-content: center;
+    }
+  
+    .chapter-buttons {
+      justify-content: center;
+    }
+  
+    .recipe-steps {
+      margin-top: 2rem;
+    }
+  
+    .info-bar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+}
+  
